@@ -134,31 +134,48 @@ const Chart: React.FC = () => {
     <div className="bg-white px-6 pt-6 rounded-lg">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Bitcoin to USD Chart</h2>
-        <div className="flex space-x-2">
+        <div className="relative flex bg-[#EFF2F5] rounded-lg p-1 px-3 gap-5">
           <button 
             onClick={() => handleIntervalChange("1D")}
-            className={`px-3 py-1 rounded ${interval === "1D" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-600"}`}
+            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+              interval === "1D" ? "text-gray-900" : "text-gray-500 font-medium"
+            }`}
           >
             1D
           </button>
           <button 
             onClick={() => handleIntervalChange("1W")}
-            className={`px-3 py-1 rounded ${interval === "1W" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-600"}`}
+            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+              interval === "1W" ? "text-gray-900" : "text-gray-500 font-medium"
+            }`}
           >
             1W
           </button>
           <button 
             onClick={() => handleIntervalChange("1M")}
-            className={`px-3 py-1 rounded ${interval === "1M" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-600"}`}
+            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+              interval === "1M" ? "text-gray-900" : "text-gray-500 font-medium"
+            }`}
           >
             1M
           </button>
           <button 
             onClick={() => handleIntervalChange("1Y")}
-            className={`px-3 py-1 rounded ${interval === "1Y" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-600"}`}
+            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+              interval === "1Y" ? "text-gray-900" : "text-gray-500 font-medium"
+            }`}
           >
             1Y
           </button>
+          {/* Sliding background */}
+          <div
+            className={`absolute h-[calc(100%-8px)] w-[calc(25%-4px)] bg-white rounded-md transition-all duration-300 ease-in-out ${
+              interval === "1D" ? "left-1" :
+              interval === "1W" ? "left-[calc(25%+3px)]" :
+              interval === "1M" ? "left-[calc(50%+5px)]" :
+              "left-[calc(75%)]"
+            }`}
+          />
         </div>
       </div>
       
