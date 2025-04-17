@@ -7,6 +7,7 @@ import NewsSection from '@/components/NewsSection';
 import CommunitySentiment from '@/components/CommunitySentiment';
 import SocialLinks from '@/components/SocialLinks';
 import TradingViewChart from '@/components/TradingViewChart';
+import BitcoinAnalytics from '@/components/BitcoinAnalytics';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           </div>
           <div className="col-span-6 overflow-y-auto">
             <Chart />
+            <BitcoinAnalytics />
           </div>
           <div className="col-span-3 min-w-[329px] overflow-y-auto border-l border-gray-200">
             <CommunitySentiment />

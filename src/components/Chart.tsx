@@ -131,7 +131,7 @@ const Chart: React.FC = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md h-full">
+    <div className="bg-white px-6 pt-6 rounded-lg">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Bitcoin to USD Chart</h2>
         <div className="flex space-x-2">
@@ -166,7 +166,7 @@ const Chart: React.FC = () => {
         <div ref={container} className="w-full h-full" />
       </div>
       
-      <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="p-3 bg-gray-50 rounded">
           <p className="text-sm text-gray-500">24h Low</p>
           <p className="font-semibold">$83,314.85</p>
@@ -183,7 +183,7 @@ const Chart: React.FC = () => {
           <p className="text-sm text-gray-500">24h Volume</p>
           <p className="font-semibold">$24.03B</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
