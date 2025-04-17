@@ -6,6 +6,7 @@ import About from '@/components/About';
 import NewsSection from '@/components/NewsSection';
 import CommunitySentiment from '@/components/CommunitySentiment';
 import SocialLinks from '@/components/SocialLinks';
+import TradingViewChart from '@/components/TradingViewChart';
 
 export default function Home() {
   return (
