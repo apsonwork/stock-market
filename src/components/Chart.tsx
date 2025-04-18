@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 declare global {
   interface Window {
@@ -13,6 +14,7 @@ const Chart: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
   const [widget, setWidget] = useState<any>(null);
   const [interval, setInterval] = useState<string>("1D");
+  const router = useRouter();
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -130,52 +132,78 @@ const Chart: React.FC = () => {
     }
   };
 
+  const handleEditClick = () => {
+    router.push('/edit');
+  };
+
   return (
     <div className="bg-white px-6 pt-6 rounded-lg">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">Bitcoin to USD Chart</h2>
-        <div className="relative flex bg-[#EFF2F5] rounded-lg p-1 px-3 gap-5">
-          <button 
-            onClick={() => handleIntervalChange("1D")}
-            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-              interval === "1D" ? "text-gray-900" : "text-gray-500 font-medium"
-            }`}
+        <h2 className="text-xl font-semibold">Nabil Bank Chart</h2>
+        <div className="flex items-center gap-4">
+          <div className="relative flex bg-[#EFF2F5] rounded-lg p-1 px-3 gap-5">
+            <button 
+              onClick={() => handleIntervalChange("1D")}
+              className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+                interval === "1D" ? "text-gray-900" : "text-gray-500 font-medium"
+              }`}
+            >
+              1D
+            </button>
+            <button 
+              onClick={() => handleIntervalChange("1W")}
+              className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+                interval === "1W" ? "text-gray-900" : "text-gray-500 font-medium"
+              }`}
+            >
+              1W
+            </button>
+            <button 
+              onClick={() => handleIntervalChange("1M")}
+              className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+                interval === "1M" ? "text-gray-900" : "text-gray-500 font-medium"
+              }`}
+            >
+              1M
+            </button>
+            <button 
+              onClick={() => handleIntervalChange("1Y")}
+              className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
+                interval === "1Y" ? "text-gray-900" : "text-gray-500 font-medium"
+              }`}
+            >
+              1Y
+            </button>
+            {/* Sliding background */}
+            <div
+              className={`absolute h-[calc(100%-8px)] w-[calc(25%-4px)] bg-white rounded-md transition-all duration-300 ease-in-out ${
+                interval === "1D" ? "left-1" :
+                interval === "1W" ? "left-[calc(25%+3px)]" :
+                interval === "1M" ? "left-[calc(50%+5px)]" :
+                "left-[calc(75%)]"
+              }`}
+            />
+          </div>
+          <button
+            onClick={handleEditClick}
+            className="relative flex items-center gap-2 bg-[#EFF2F5] rounded-lg px-3 py-2 text-xs text-gray-500 hover:text-gray-900 transition-colors duration-300"
           >
-            1D
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              />
+            </svg>
+            TradingView
           </button>
-          <button 
-            onClick={() => handleIntervalChange("1W")}
-            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-              interval === "1W" ? "text-gray-900" : "text-gray-500 font-medium"
-            }`}
-          >
-            1W
-          </button>
-          <button 
-            onClick={() => handleIntervalChange("1M")}
-            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-              interval === "1M" ? "text-gray-900" : "text-gray-500 font-medium"
-            }`}
-          >
-            1M
-          </button>
-          <button 
-            onClick={() => handleIntervalChange("1Y")}
-            className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-              interval === "1Y" ? "text-gray-900" : "text-gray-500 font-medium"
-            }`}
-          >
-            1Y
-          </button>
-          {/* Sliding background */}
-          <div
-            className={`absolute h-[calc(100%-8px)] w-[calc(25%-4px)] bg-white rounded-md transition-all duration-300 ease-in-out ${
-              interval === "1D" ? "left-1" :
-              interval === "1W" ? "left-[calc(25%+3px)]" :
-              interval === "1M" ? "left-[calc(50%+5px)]" :
-              "left-[calc(75%)]"
-            }`}
-          />
         </div>
       </div>
       

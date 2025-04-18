@@ -5,6 +5,7 @@ import React from 'react';
 interface Segment {
   label: string;
   percentage: number;
+  value: number;
   color: 'blue' | 'green' | 'orange';
 }
 
@@ -29,7 +30,7 @@ const PercentageBar: React.FC<PercentageBarProps> = ({ segments }) => {
                 <div className={`w-1.5 h-1.5 ${colorClasses[segment.color]} rounded-full mr-1`} />
                 <span className="text-xs font-medium text-gray-500">{segment.label}</span>
               </div>
-              <span className="text-base font-bold mt-2">{segment.percentage.toFixed(2)}%</span>
+              <span className="text-sm font-bold mt-2">NPR {segment.value}</span>
             </div>
           ))}
         </div>

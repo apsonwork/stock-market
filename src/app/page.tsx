@@ -15,16 +15,16 @@ export default function Home() {
       <Header />
 
       <main className="flex-1 overflow-hidden">
-        <div className="grid grid-cols-12 h-[calc(100vh-65px)]">
-          <div className="col-span-3 min-w-[329px] overflow-y-auto border-r border-gray-200">
+        <div className="flex h-[calc(100vh-65px)]">
+          <div className="shrink-0 w-[390px] min-w-[329px] overflow-y-auto border-r border-gray-200">
             <PriceStats />
             <SocialLinks />
           </div>
-          <div className="col-span-6 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto">
             <Chart />
             <BitcoinAnalytics />
           </div>
-          <div className="col-span-3 min-w-[329px] overflow-y-auto border-l border-gray-200">
+          <div className="shrink-0 w-[390px] min-w-[329px] overflow-y-auto border-l border-gray-200 hidden xl:block">
             <CommunitySentiment />
             <NewsSection />
           </div>

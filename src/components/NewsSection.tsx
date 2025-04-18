@@ -52,7 +52,7 @@ Sentiment is loud. <br/>
 But remember: euphoria ≠ breakout. <br/>
 
 Watch the $86K level </h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png" loading="lazy" decoding="async" alt="image"></img>
+              <img className='w-full h-40 rounded-lg object-cover mt-2' src="images/image.jpeg" loading="lazy" decoding="async" alt="image"></img>
             </div>
             </div>
             <div className="px-1   transition-colors border-b pb-3 border-border-light">
@@ -62,7 +62,7 @@ Watch the $86K level </h3>
               <p className="text-11 font-normal text-gray-500">2 hours ago</p>
               </div>
               <h3 className="text-sm font-medium text-gray-900">BTC train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/dc0f3aa391df44559830669c773fe45d.jpg" loading="lazy" decoding="async" alt="image"></img>
+              <img className='w-full h-40 rounded-lg object-cover mt-2' src="images/image.jpeg" loading="lazy" decoding="async" alt="image"></img>
             </div>
           </div>
         ) : (
