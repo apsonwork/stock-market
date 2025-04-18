@@ -91,7 +91,7 @@ const ChartRightSection: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="h-full flex flex-col gap-4">
       {/* Current Strategy Section */}
       <div className={`${bgColor} p-4 rounded-lg`}>
         <h3 className={`text-sm font-semibold mb-2 ${textColor}`}>Current Strategy</h3>
@@ -198,152 +198,93 @@ const ChartRightSection: React.FC = () => {
       </div>
 
       {/* Chat Box Section */}
-      <div className={`${bgColor} p-4 rounded-lg`}>
+      <div className={`${bgColor} p-4 rounded-lg border ${borderColor} flex flex-col justify-between h-full`}>
         <div className="flex items-center gap-2 mb-4">
-          <div className="relative">
-            <div className={`w-8 h-8 rounded-full ${theme === 'dark' ? 'bg-[#2962FF]' : 'bg-blue-500'} flex items-center justify-center`}>
-              <svg
-                className="w-5 h-5 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                />
-              </svg>
-            </div>
-            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+          <div className={`w-8 h-8 rounded-full ${theme === 'dark' ? 'bg-[#2962FF]' : 'bg-blue-500'} flex items-center justify-center`}>
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+              />
+            </svg>
           </div>
           <div>
             <h3 className={`text-sm font-semibold ${textColor}`}>AI Assistant</h3>
-            <p className={`text-xs ${secondaryTextColor}`}>Ask me anything..</p>
+            <p className={`text-11 ${secondaryTextColor}`}>Ask me anything about the market</p>
           </div>
         </div>
-
-        <div className={`space-y-3 mb-4 max-h-48 overflow-y-auto ${theme === 'dark' ? 'scrollbar-thumb-[#2A2E39]' : 'scrollbar-thumb-gray-200'} scrollbar-track-transparent scrollbar-thin`}>
+        <div className={`space-y-4 max-h-[200px] overflow-y-auto mb-4 ${theme === 'dark' ? 'scrollbar-thumb-[#2A2E39]' : 'scrollbar-thumb-gray-200'} scrollbar-track-transparent scrollbar-thin`}>
           {error && (
-            <div className="flex gap-2">
-              <div className={`w-6 h-6 rounded-full bg-red-500 flex-shrink-0 flex items-center justify-center`}>
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div className={`${inputBgColor} rounded-lg p-3 max-w-[80%] text-red-500 text-sm`}>
-                {error}
+            <div className="flex justify-start">
+              <div className={`max-w-[80%] rounded-lg p-3 ${theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-gray-100'}`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className={`w-5 h-5 rounded-full bg-red-500 flex items-center justify-center`}>
+                    <svg
+                      className="w-3 h-3 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <span className={`text-11 font-semibold ${theme === 'dark' ? 'text-red-400' : 'text-red-500'}`}>Error</span>
+                </div>
+                <p className={`text-11 font-normal ${theme === 'dark' ? 'text-red-300' : 'text-red-600'}`}>
+                  {error}
+                </p>
               </div>
             </div>
           )}
           {isLoading && (
-            <div className="flex gap-2">
-              <div className={`w-6 h-6 rounded-full ${theme === 'dark' ? 'bg-[#2962FF]' : 'bg-blue-500'} flex-shrink-0 flex items-center justify-center`}>
-                <svg
-                  className="w-4 h-4 text-white animate-spin"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  />
-                </svg>
-              </div>
-              <div className={`${inputBgColor} rounded-lg p-3 max-w-[80%] ${textColor} text-sm`}>
-                Thinking...
+            <div className="flex justify-start">
+              <div className={`max-w-[80%] rounded-lg p-3 ${theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-gray-100'}`}>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-[#2962FF] animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <div className="w-2 h-2 rounded-full bg-[#2962FF] animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <div className="w-2 h-2 rounded-full bg-[#2962FF] animate-bounce" style={{ animationDelay: '300ms' }} />
+                </div>
               </div>
             </div>
           )}
           {response && (
-            <div className="flex gap-2">
-              <div className={`w-6 h-6 rounded-full ${theme === 'dark' ? 'bg-[#2962FF]' : 'bg-blue-500'} flex-shrink-0 flex items-center justify-center`}>
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
-              </div>
-              <div className={`${inputBgColor} rounded-lg p-3 max-w-[80%] ${textColor} text-sm`}>
-                {response}
+            <div className="flex justify-end">
+              <div className={`max-w-[80%] rounded-lg p-3 ${theme === 'dark' ? 'bg-[#2962FF]' : 'bg-blue-500'}`}>
+                <p className={`text-11 font-normal ${textColor}`}>{response}</p>
               </div>
             </div>
           )}
         </div>
-
-        <form onSubmit={handleSubmit} className="relative">
+        <form onSubmit={handleSubmit} className="flex gap-2">
           <input
             type="text"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            placeholder="Ask me anything..."
-            className={`w-full px-4 py-3 pr-12 text-sm ${inputBgColor} ${borderColor} border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${textColor} placeholder-${secondaryTextColor}`}
-            disabled={isLoading}
+            placeholder="Ask me anything"
+            className={`flex-1 px-4 py-2 rounded-lg text-11 font-normal ${theme === 'dark' ? 'bg-[#2A2E39] text-[#D1D4DC] placeholder-[#9598A1]' : 'bg-gray-100 text-gray-900 placeholder-gray-500'} focus:outline-none focus:ring-2 focus:ring-[#2962FF]`}
           />
           <button
             type="submit"
-            disabled={isLoading}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full ${
-              theme === 'dark' ? 'hover:bg-[#2A2E39]' : 'hover:bg-gray-100'
-            } transition-colors duration-200 ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={isLoading || !question.trim()}
+            className={`px-4 py-2 rounded-lg text-white text-11 font-medium transition-colors duration-200 ${
+              isLoading || !question.trim() ? 'opacity-50 cursor-not-allowed' : ''
+            } ${theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-blue-500'} ${theme === 'dark' ? 'hover:bg-[#2A2E39]' : 'hover:bg-blue-600'}`}
           >
-            {isLoading ? (
-              <svg
-                className="w-5 h-5 animate-spin"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 5l7 7-7 7M5 5l7 7-7 7"
-                />
-              </svg>
-            )}
+            Send
           </button>
         </form>
       </div>

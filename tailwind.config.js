@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -49,5 +51,55 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [plugin(({ addUtilities }) => {
+    addUtilities({
+      ".scrollbar-hide": {
+        /* IE and Edge /
+        "-ms-overflow-style": "none",
+        / Firefox /
+        "scrollbar-width": "none",
+        / Safari and Chrome */
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+      },
+
+      ".scrollbar-light": {
+          "&::-webkit-scrollbar": {
+            width: "5px",
+            marginTop: "10px",
+            height: "6px",
+            background: "#E4E5E5",
+            border: "4px solid transparent",
+            borderRadius: "8px",
+            cursor: "pointer",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "#3eb368",
+            border: "4px solid transparent",
+            borderRadius: "8px",
+            backgroundClip: "paddingBox",
+          },
+      },
+
+      ".scrollbar-dark": {
+        "&::-webkit-scrollbar": {
+          width: "5px",
+          marginTop: "10px",
+          height: "6px",
+          background: "#1E222D",
+          border: "4px solid transparent",
+          borderRadius: "8px",
+          cursor: "pointer",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          background: "#2A2E39",
+          border: "4px solid transparent",
+          borderRadius: "8px",
+          backgroundClip: "paddingBox",
+        },
+      }
+    });
+  }),
+  ],
 } 
