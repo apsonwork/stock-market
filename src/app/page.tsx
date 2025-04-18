@@ -8,6 +8,7 @@ import CommunitySentiment from '@/components/CommunitySentiment';
 import SocialLinks from '@/components/SocialLinks';
 import TradingViewChart from '@/components/TradingViewChart';
 import BitcoinAnalytics from '@/components/BitcoinAnalytics';
+import AdSection from '@/components/AdSection';
 
 export default function Home() {
   return (
@@ -19,14 +20,16 @@ export default function Home() {
           <div className="shrink-0 w-[390px] min-w-[329px] overflow-y-auto border-r border-gray-200">
             <PriceStats />
             <SocialLinks />
+            <CommunitySentiment />
+            <AdSection />
           </div>
           <div className="flex-1 overflow-y-auto">
             <Chart />
             <BitcoinAnalytics />
           </div>
           <div className="shrink-0 w-[390px] min-w-[329px] overflow-y-auto border-l border-gray-200 hidden xl:block">
-            <CommunitySentiment />
             <NewsSection />
+            <AdSection />
           </div>
         </div>
       </main>

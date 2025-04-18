@@ -23,7 +23,7 @@ const SocialLinks: React.FC = () => {
         <div className="space-y-4">
           <div className="h-6 flex justify-end">
             <a href="https://bitcoin.org" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline">
-              <span className="bg-gray-100 text-black-100 font-medium px-3 py-1 rounded-full">Website</span>
+              <span className="bg-gray-100 text-black-100 font-medium px-3 py-1 rounded-full">https://www.nabilbank.com</span>
             </a>
           </div>
           <div className="space-y-1 flex justify-end gap-2">
