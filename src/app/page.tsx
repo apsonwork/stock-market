@@ -9,6 +9,7 @@ import SocialLinks from '@/components/SocialLinks';
 import TradingViewChart from '@/components/TradingViewChart';
 import BitcoinAnalytics from '@/components/BitcoinAnalytics';
 import AdSection from '@/components/AdSection';
+import ChartRightSection from '@/components/ChartRightSection';
 
 export default function Home() {
   return (
@@ -24,8 +25,15 @@ export default function Home() {
             <AdSection />
           </div>
           <div className="flex-1 overflow-y-auto">
-            <Chart />
-            <BitcoinAnalytics />
+            <div className="flex">
+              <div className="flex-1">
+                <Chart />
+                <BitcoinAnalytics />
+              </div>
+              <div className="w-[300px] shrink-0 p-4">
+                <ChartRightSection />
+              </div>
+            </div>
           </div>
           <div className="shrink-0 w-[390px] min-w-[329px] overflow-y-auto border-l border-gray-200 hidden xl:block">
             <NewsSection />

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import ChartRightSection from '@/components/ChartRightSection';
 
 declare global {
   interface Window {
@@ -132,8 +133,13 @@ export default function EditPage() {
           Exit
         </button>
       </div>
-      <div className="absolute top-0 left-0 w-[70%] h-[85vh]">
-        <div ref={container} className="w-full h-full" />
+      <div className="flex h-full">
+        <div className="w-[70%] h-[90vh]">
+          <div ref={container} className="w-full h-full" />
+        </div>
+        <div className="w-[30%] p-4">
+          <ChartRightSection />
+        </div>
       </div>
     </div>
   );
