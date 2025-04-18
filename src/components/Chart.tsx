@@ -18,6 +18,13 @@ const Chart: React.FC = () => {
   const router = useRouter();
   const { theme } = useTheme();
 
+  const bgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-white';
+  const textColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-gray-900';
+  const buttonBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-[#EFF2F5]';
+  const buttonTextColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-500';
+  const buttonHoverTextColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-gray-900';
+  const buttonActiveBgColor = theme === 'dark' ? 'bg-[#131722]' : 'bg-white';
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "charting_library/charting_library.standalone.js";
@@ -161,15 +168,15 @@ const Chart: React.FC = () => {
   };
 
   return (
-    <div className="bg-white px-6 pt-6 rounded-lg">
+    <div className={`px-6 pt-6`}>
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-semibold">Nabil Bank Chart</h2>
+        <h2 className={`text-xl font-semibold ${textColor}`}>Nabil Bank Chart</h2>
         <div className="flex items-center gap-4">
-          <div className="relative flex bg-[#EFF2F5] dark:bg-[#2A2E39] rounded-lg p-1 px-3 gap-5">
+          <div className={`relative flex ${buttonBgColor} rounded-lg p-1 px-3 gap-5`}>
             <button 
               onClick={() => handleIntervalChange("1D")}
               className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-                interval === "1D" ? "text-gray-900 dark:text-[#D1D4DC]" : "text-gray-500 dark:text-[#9598A1] font-medium"
+                interval === "1D" ? `${textColor}` : `${buttonTextColor} font-medium`
               }`}
             >
               1D
@@ -177,7 +184,7 @@ const Chart: React.FC = () => {
             <button 
               onClick={() => handleIntervalChange("1W")}
               className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-                interval === "1W" ? "text-gray-900 dark:text-[#D1D4DC]" : "text-gray-500 dark:text-[#9598A1] font-medium"
+                interval === "1W" ? `${textColor}` : `${buttonTextColor} font-medium`
               }`}
             >
               1W
@@ -185,7 +192,7 @@ const Chart: React.FC = () => {
             <button 
               onClick={() => handleIntervalChange("1M")}
               className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-                interval === "1M" ? "text-gray-900 dark:text-[#D1D4DC]" : "text-gray-500 dark:text-[#9598A1] font-medium"
+                interval === "1M" ? `${textColor}` : `${buttonTextColor} font-medium`
               }`}
             >
               1M
@@ -193,14 +200,14 @@ const Chart: React.FC = () => {
             <button 
               onClick={() => handleIntervalChange("1Y")}
               className={`relative flex-1 py-2 text-xs transition-colors duration-300 rounded-md z-10 ${
-                interval === "1Y" ? "text-gray-900 dark:text-[#D1D4DC]" : "text-gray-500 dark:text-[#9598A1] font-medium"
+                interval === "1Y" ? `${textColor}` : `${buttonTextColor} font-medium`
               }`}
             >
               1Y
             </button>
             {/* Sliding background */}
             <div
-              className={`absolute h-[calc(100%-8px)] w-[calc(25%-4px)] bg-white rounded-md transition-all duration-300 ease-in-out ${
+              className={`absolute h-[calc(100%-8px)] w-[calc(25%-4px)] ${buttonActiveBgColor} rounded-md transition-all duration-300 ease-in-out ${
                 interval === "1D" ? "left-1" :
                 interval === "1W" ? "left-[calc(25%+3px)]" :
                 interval === "1M" ? "left-[calc(50%+5px)]" :
@@ -210,7 +217,7 @@ const Chart: React.FC = () => {
           </div>
           <button
             onClick={handleEditClick}
-            className="relative flex items-center gap-2 bg-[#EFF2F5] dark:bg-[#2A2E39] rounded-lg px-3 py-2 text-xs text-gray-500 dark:text-[#9598A1] hover:text-gray-900 dark:hover:text-[#D1D4DC] transition-colors duration-300"
+            className={`relative flex items-center gap-2 ${buttonBgColor} rounded-lg px-3 py-2 text-xs ${buttonTextColor} hover:${buttonHoverTextColor} transition-colors duration-300`}
           >
             <svg
               className="w-4 h-4"

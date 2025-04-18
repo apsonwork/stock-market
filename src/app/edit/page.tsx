@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import ChartRightSection from '@/components/ChartRightSection';
 import AITechnicalAnalysis from '@/components/AITechnicalAnalysis';
 import MarketTicker from '@/components/MarketTicker';
+import { useTheme } from '@/context/ThemeContext';
 
 declare global {
   interface Window {
@@ -174,6 +175,12 @@ export default function EditPage() {
   const container = useRef<HTMLDivElement>(null);
   const [widget, setWidget] = useState<any>(null);
   const router = useRouter();
+  const { theme } = useTheme();
+
+  const bgColor = theme === 'dark' ? 'bg-[#131722]' : 'bg-white';
+  const buttonBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-[#EFF2F5]';
+  const buttonTextColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-gray-500';
+  const buttonHoverTextColor = theme === 'dark' ? 'hover:text-white' : 'hover:text-gray-900';
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -205,22 +212,22 @@ export default function EditPage() {
           ),
           library_path: "charting_library/",
           locale: "en",
-          theme: "Dark",
+          theme: theme === 'dark' ? "Dark" : "Light",
           autosize: false,
           height: "100%",
           width: "100%",
-          toolbar_bg: "#1e222d",
+          toolbar_bg: theme === 'dark' ? "#1e222d" : "#f8fafd",
           overrides: {
             "paneProperties.backgroundType": "solid",
-            "paneProperties.background": "#131722",
-            "paneProperties.gridProperties.color": "#2a2e39",
+            "paneProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+            "paneProperties.gridProperties.color": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
             "paneProperties.gridProperties.vertLinesVisible": false,
             "paneProperties.gridProperties.horzLinesVisible": false,
-            "scalesProperties.lineColor": "#2a2e39",
-            "scalesProperties.textColor": "#d1d4dc",
+            "scalesProperties.lineColor": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
+            "scalesProperties.textColor": theme === 'dark' ? "#d1d4dc" : "#131722",
             "mainSeriesProperties.style": 3,
-            "mainSeriesProperties.areaStyle.color1": "rgba(41, 98, 255, 0.1)",
-            "mainSeriesProperties.areaStyle.color2": "rgba(41, 98, 255, 0.05)",
+            "mainSeriesProperties.areaStyle.color1": theme === 'dark' ? "rgba(41, 98, 255, 0.1)" : "rgba(41, 98, 255, 0.1)",
+            "mainSeriesProperties.areaStyle.color2": theme === 'dark' ? "rgba(41, 98, 255, 0.05)" : "rgba(41, 98, 255, 0.05)",
             "mainSeriesProperties.areaStyle.linecolor": "#2962FF",
             "mainSeriesProperties.areaStyle.linestyle": 0,
             "mainSeriesProperties.areaStyle.linewidth": 2,
@@ -231,18 +238,18 @@ export default function EditPage() {
             "mainSeriesProperties.candleStyle.borderDownColor": "#ef5350",
             "mainSeriesProperties.candleStyle.wickUpColor": "#26a69a",
             "mainSeriesProperties.candleStyle.wickDownColor": "#ef5350",
-            "chartProperties.background": "#131722",
-            "chartProperties.crossHairProperties.color": "#9598A1",
+            "chartProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+            "chartProperties.crossHairProperties.color": theme === 'dark' ? "#9598A1" : "#131722",
             "chartProperties.crossHairProperties.width": 1,
             "chartProperties.crossHairProperties.style": 2,
             "chartProperties.crossHairProperties.dashStyle": [2, 2],
-            "chartProperties.vertGridProperties.color": "#2a2e39",
-            "chartProperties.horzGridProperties.color": "#2a2e39",
-            "chartProperties.crossHairProperties.vertLine.color": "#9598A1",
-            "chartProperties.crossHairProperties.horzLine.color": "#9598A1"
+            "chartProperties.vertGridProperties.color": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
+            "chartProperties.horzGridProperties.color": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
+            "chartProperties.crossHairProperties.vertLine.color": theme === 'dark' ? "#9598A1" : "#131722",
+            "chartProperties.crossHairProperties.horzLine.color": theme === 'dark' ? "#9598A1" : "#131722"
           },
           loading_screen: {
-            backgroundColor: "#131722",
+            backgroundColor: theme === 'dark' ? "#131722" : "#ffffff",
             foregroundColor: "#2962FF"
           }
         });
@@ -266,14 +273,14 @@ export default function EditPage() {
         }
       });
     };
-  }, []);
+  }, [theme]);
 
   return (
-    <div className="bg-[#131722] overflow-hidden h-screen">
+    <div className={`${bgColor} overflow-hidden h-screen`}>
       <div className="absolute top-4 right-4 z-10">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 bg-[#EFF2F5] rounded-lg px-3 py-2 text-xs text-gray-500 hover:text-gray-900 transition-colors duration-300"
+          className={`flex items-center gap-2 ${buttonBgColor} rounded-lg px-3 py-2 text-xs ${buttonTextColor} ${buttonHoverTextColor} transition-colors duration-300`}
         >
           <svg
             className="w-4 h-4"
@@ -294,23 +301,23 @@ export default function EditPage() {
       </div>
       <div className="flex h-full">
         <div className='w-[70%]'>
-        <div className="flex h-[70vh]">
-          <div className="w-full h-full">
-            <div ref={container} className="w-full h-full" />
+          <div className="flex h-[70vh]">
+            <div className="w-full h-full">
+              <div ref={container} className="w-full h-full" />
+            </div>
+          </div>
+          <div className="ml-2 my-4">
+            <div className="w-full flex flex-col gap-4">
+              <MarketTicker data={marketData} />
+              <AITechnicalAnalysis />
+            </div>
           </div>
         </div>
-        <div className="ml-2 my-4">
-          <div className="w-full flex flex-col gap-4">
-            <MarketTicker data={marketData} />
-            <AITechnicalAnalysis />
-          </div>
+
+        <div className="w-[30%] p-4">
+          <ChartRightSection />
         </div>
       </div>
-
-      <div className="w-[30%] p-4">
-            <ChartRightSection />
-          </div>
-        </div>
     </div>
   );
 } 

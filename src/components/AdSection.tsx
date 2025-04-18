@@ -1,10 +1,19 @@
+"use client"
+
 import React from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 const AdSection: React.FC = () => {
+  const { theme } = useTheme();
+  
+  const bgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-[#F8FAFD]';
+  const textColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-500';
+  const adBgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-gray-200';
+
   return (
-    <div className="bg-[#F8FAFD] p-4 rounded-lg mt-4">
-      <div className="text-center text-gray-500 text-sm mb-2">Advertisement</div>
-      <div className="bg-gray-200 rounded-lg overflow-hidden">
+    <div className={`${bgColor} p-4 mt-4`}>
+      <div className={`text-center ${textColor} text-sm mb-2`}>Advertisement</div>
+      <div className={`${adBgColor} rounded-lg overflow-hidden`}>
         <img 
           src="/images/ad.jpeg" 
           alt="Advertisement" 
