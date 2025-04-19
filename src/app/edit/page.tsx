@@ -216,7 +216,7 @@ export default function EditPage() {
           autosize: false,
           height: "100%",
           width: "100%",
-          toolbar_bg: theme === 'dark' ? "#1e222d" : "#f8fafd",
+          toolbar_bg: theme === 'dark' ? "#131722" : "#f8fafd",
           overrides: {
             "paneProperties.backgroundType": "solid",
             "paneProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
@@ -300,7 +300,7 @@ export default function EditPage() {
         </button>
       </div>
       <div className="flex h-full">
-        <div className='w-[70%]'>
+        <div className='w-[80%]'>
           <div className="flex h-[70vh]">
             <div className="w-full h-full">
               <div ref={container} className="w-full h-full" />
@@ -314,7 +314,7 @@ export default function EditPage() {
           </div>
         </div>
 
-        <div className="w-[30%] p-4">
+        <div className="w-[20%] p-4">
           <ChartRightSection />
         </div>
       </div>

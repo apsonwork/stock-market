@@ -3,15 +3,20 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 
-const ThemeToggle: React.FC = () => {
+export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 p-2 rounded-lg bg-[#EFF2F5] dark:bg-[#2A2E39] text-gray-500 dark:text-[#9598A1] hover:text-gray-900 dark:hover:text-[#D1D4DC] transition-colors duration-300"
+      className={`fixed top-4 right-[92px] p-2 rounded-lg transition-colors duration-300 ${
+        theme === 'dark'
+          ? 'bg-[#2A2E39] text-[#D1D4DC] hover:bg-[#3A3E49]'
+          : 'bg-[#EFF2F5] text-gray-500 hover:bg-gray-100'
+      }`}
+      aria-label="Toggle theme"
     >
-      {theme === 'light' ? (
+      {theme === 'dark' ? (
         <svg
           className="w-5 h-5"
           fill="none"
@@ -44,6 +49,4 @@ const ThemeToggle: React.FC = () => {
       )}
     </button>
   );
-};
-
-export default ThemeToggle; 
+} 
