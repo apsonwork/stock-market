@@ -7,6 +7,7 @@ const nextConfig = {
       'images.unsplash.com',
       'localhost'
     ],
+    unoptimized: true
   },
   output: 'export',
   distDir: 'out',
