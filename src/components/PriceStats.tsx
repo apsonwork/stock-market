@@ -14,7 +14,7 @@ const PriceStats: React.FC = () => {
   const positiveColor = theme === 'dark' ? 'text-green-400' : 'text-green-600';
 
   return (
-    <div className={`${bgColor} p-4 rounded-lg border ${borderColor}`}>
+    <div className={`${bgColor} p-4`}>
       <div className="flex items-center gap-3 mb-4">
         <div className="relative w-7 h-7">
           <Image

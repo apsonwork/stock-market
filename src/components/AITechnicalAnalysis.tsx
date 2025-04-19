@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 
 interface AITechnicalAnalysisProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   widget: any;
 }
 
 const AITechnicalAnalysis: React.FC<AITechnicalAnalysisProps> = ({ widget }) => {
   const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [analysisData, setAnalysisData] = useState<any>(null);
   const { theme } = useTheme();
 
@@ -199,7 +201,8 @@ const AITechnicalAnalysis: React.FC<AITechnicalAnalysisProps> = ({ widget }) => 
           </div>
         ) : (
           <div className="flex justify-center items-center h-full">
-            <p className={`text-sm ${secondaryTextColor}`}>Click "Analyze" to generate technical analysis.</p>
+
+            <p className={`text-sm font-normal ${secondaryTextColor}`}>Click <b>Analyze</b> to generate technical analysis.</p>
           </div>
         )}
       </div>

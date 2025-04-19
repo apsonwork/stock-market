@@ -177,6 +177,7 @@ export default function EditPage() {
   const container = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { theme } = useTheme();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [widget, setWidget] = useState<any>(null);
 
   const bgColor = theme === 'dark' ? 'bg-[#131722]' : 'bg-white';
@@ -362,7 +363,7 @@ export default function EditPage() {
         </div>
 
         <div className="w-[20%] p-4">
-          <ChartRightSection widget={widget} />
+          <ChartRightSection />
         </div>
       </div>
     </div>
