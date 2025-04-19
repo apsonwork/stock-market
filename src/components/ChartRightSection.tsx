@@ -2,8 +2,13 @@
 
 import React, { useState } from 'react';
 import { useTheme } from '@/context/ThemeContext';
+import AITechnicalAnalysis from './AITechnicalAnalysis';
 
-const ChartRightSection: React.FC = () => {
+interface ChartRightSectionProps {
+  widget: any; // TradingView widget instance
+}
+
+const ChartRightSection: React.FC<ChartRightSectionProps> = ({ widget }) => {
   const [activeTab, setActiveTab] = useState<'buy' | 'sell' | 'hold'>('buy');
   const [question, setQuestion] = useState('');
   const [response, setResponse] = useState('');

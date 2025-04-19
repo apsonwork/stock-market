@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ChartRightSection from '@/components/ChartRightSection';
 import AITechnicalAnalysis from '@/components/AITechnicalAnalysis';
@@ -177,6 +177,7 @@ export default function EditPage() {
   const container = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { theme } = useTheme();
+  const [widget, setWidget] = useState<any>(null);
 
   const bgColor = theme === 'dark' ? 'bg-[#131722]' : 'bg-white';
   const buttonBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-[#EFF2F5]';
@@ -221,11 +222,11 @@ export default function EditPage() {
           overrides: {
             "paneProperties.backgroundType": "solid",
             "paneProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
-            "paneProperties.gridProperties.color": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
+            "paneProperties.gridProperties.color": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
             "paneProperties.gridProperties.vertLinesVisible": false,
             "paneProperties.gridProperties.horzLinesVisible": false,
-            "scalesProperties.lineColor": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
-            "scalesProperties.textColor": theme === 'dark' ? "#d1d4dc" : "#131722",
+            "scalesProperties.lineColor": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
+            "scalesProperties.textColor": theme === 'dark' ? "#D1D4DC" : "#131722",
             "mainSeriesProperties.style": 3,
             "mainSeriesProperties.areaStyle.color1": theme === 'dark' ? "rgba(41, 98, 255, 0.1)" : "rgba(41, 98, 255, 0.1)",
             "mainSeriesProperties.areaStyle.color2": theme === 'dark' ? "rgba(41, 98, 255, 0.05)" : "rgba(41, 98, 255, 0.05)",
@@ -244,10 +245,16 @@ export default function EditPage() {
             "chartProperties.crossHairProperties.width": 1,
             "chartProperties.crossHairProperties.style": 2,
             "chartProperties.crossHairProperties.dashStyle": [2, 2],
-            "chartProperties.vertGridProperties.color": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
-            "chartProperties.horzGridProperties.color": theme === 'dark' ? "#2a2e39" : "#e0e3eb",
+            "chartProperties.vertGridProperties.color": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
+            "chartProperties.horzGridProperties.color": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
             "chartProperties.crossHairProperties.vertLine.color": theme === 'dark' ? "#9598A1" : "#131722",
-            "chartProperties.crossHairProperties.horzLine.color": theme === 'dark' ? "#9598A1" : "#131722"
+            "chartProperties.crossHairProperties.horzLine.color": theme === 'dark' ? "#9598A1" : "#131722",
+            "mainSeriesProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundGradientStartColor": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundGradientEndColor": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundColor": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundType": "solid",
+            "mainSeriesProperties.backgroundGradientEnabled": false
           },
           loading_screen: {
             backgroundColor: theme === 'dark' ? "#131722" : "#ffffff",
@@ -256,7 +263,18 @@ export default function EditPage() {
         });
 
         tvWidget.onChartReady(() => {
-          tvWidget.activeChart();
+          const chart = tvWidget.activeChart();
+          chart.applyOverrides({
+            "paneProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+            "chartProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundGradientStartColor": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundGradientEndColor": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundColor": theme === 'dark' ? "#131722" : "#ffffff",
+            "mainSeriesProperties.backgroundType": "solid",
+            "mainSeriesProperties.backgroundGradientEnabled": false
+          });
+          setWidget(tvWidget);
         });
 
       };
@@ -271,6 +289,38 @@ export default function EditPage() {
       });
     };
   }, [theme]);
+
+  // Add new effect to handle theme changes
+  useEffect(() => {
+    if (widget) {
+      widget.changeTheme(theme === 'dark' ? "Dark" : "Light");
+      const chart = widget.activeChart();
+      chart.applyOverrides({
+        "paneProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+        "chartProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+        "mainSeriesProperties.background": theme === 'dark' ? "#131722" : "#ffffff",
+        "mainSeriesProperties.backgroundGradientStartColor": theme === 'dark' ? "#131722" : "#ffffff",
+        "mainSeriesProperties.backgroundGradientEndColor": theme === 'dark' ? "#131722" : "#ffffff",
+        "mainSeriesProperties.backgroundColor": theme === 'dark' ? "#131722" : "#ffffff",
+        "mainSeriesProperties.backgroundType": "solid",
+        "mainSeriesProperties.backgroundGradientEnabled": false,
+        "paneProperties.gridProperties.color": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
+        "scalesProperties.lineColor": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
+        "scalesProperties.textColor": theme === 'dark' ? "#D1D4DC" : "#131722",
+        "chartProperties.crossHairProperties.color": theme === 'dark' ? "#9598A1" : "#131722",
+        "chartProperties.vertGridProperties.color": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
+        "chartProperties.horzGridProperties.color": theme === 'dark' ? "#2A2E39" : "#e0e3eb",
+        "chartProperties.crossHairProperties.vertLine.color": theme === 'dark' ? "#9598A1" : "#131722",
+        "chartProperties.crossHairProperties.horzLine.color": theme === 'dark' ? "#9598A1" : "#131722",
+        "mainSeriesProperties.candleStyle.upColor": theme === 'dark' ? "#26a69a" : "#26a69a",
+        "mainSeriesProperties.candleStyle.downColor": theme === 'dark' ? "#ef5350" : "#ef5350",
+        "mainSeriesProperties.candleStyle.borderUpColor": theme === 'dark' ? "#26a69a" : "#26a69a",
+        "mainSeriesProperties.candleStyle.borderDownColor": theme === 'dark' ? "#ef5350" : "#ef5350",
+        "mainSeriesProperties.candleStyle.wickUpColor": theme === 'dark' ? "#26a69a" : "#26a69a",
+        "mainSeriesProperties.candleStyle.wickDownColor": theme === 'dark' ? "#ef5350" : "#ef5350"
+      });
+    }
+  }, [theme, widget]);
 
   return (
     <div className={`${bgColor} overflow-hidden h-screen`}>
@@ -306,13 +356,13 @@ export default function EditPage() {
           <div className="ml-2 my-4">
             <div className="w-full flex flex-col gap-4">
               <MarketTicker data={marketData} />
-              <AITechnicalAnalysis />
+              <AITechnicalAnalysis widget={widget} />
             </div>
           </div>
         </div>
 
         <div className="w-[20%] p-4">
-          <ChartRightSection />
+          <ChartRightSection widget={widget} />
         </div>
       </div>
     </div>
