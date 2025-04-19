@@ -1,10 +1,12 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     TradingView: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Datafeeds: any;
   }
 }
@@ -21,7 +23,6 @@ const TradingViewChart: React.FC<TradingViewChartProps> = ({
   theme = "Light"
 }) => {
   const container = useRef<HTMLDivElement>(null);
-  const [widget, setWidget] = useState<any>(null);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -62,20 +63,8 @@ const TradingViewChart: React.FC<TradingViewChartProps> = ({
         });
 
         tvWidget.onChartReady(() => {
-          const chart = tvWidget.activeChart();
-
-          // Add crosshair event listener
-          chart.crossHairMoved().subscribe(null, (param: any) => {
-            console.log(
-              "Price:",
-              param.price,
-              "Time:",
-              new Date(param.time * 1000)
-            );
-          });
+          tvWidget.activeChart();
         });
-
-        setWidget(tvWidget);
       };
     };
 

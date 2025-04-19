@@ -6,7 +6,6 @@ import { useTheme } from '@/context/ThemeContext';
 const CommunitySentiment: React.FC = () => {
   const { theme } = useTheme();
   const bullishPercentage = 81;
-  const bearishPercentage = 19;
   const totalVotes = 3.7;
 
   const bgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-white';

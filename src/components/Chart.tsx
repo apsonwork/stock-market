@@ -6,19 +6,21 @@ import { useTheme } from '@/context/ThemeContext';
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     TradingView: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Datafeeds: any;
   }
 }
 
 const Chart: React.FC = () => {
   const container = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [widget, setWidget] = useState<any>(null);
   const [interval, setInterval] = useState<string>("1D");
   const router = useRouter();
   const { theme } = useTheme();
 
-  const bgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-white';
   const textColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-gray-900';
   const buttonBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-[#EFF2F5]';
   const buttonTextColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-500';
@@ -136,10 +138,7 @@ const Chart: React.FC = () => {
         });
 
         tvWidget.onChartReady(() => {
-          const chart = tvWidget.activeChart();
-          chart.crossHairMoved().subscribe(null, (param: any) => {
-            console.log("Price:", param.price, "Time:", new Date(param.time * 1000));
-          });
+          tvWidget.activeChart();
         });
 
         setWidget(tvWidget);

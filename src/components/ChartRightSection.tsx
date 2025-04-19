@@ -48,7 +48,6 @@ const ChartRightSection: React.FC = () => {
   const tabIndicatorColor = theme === 'dark' ? 'bg-[#131722]' : 'bg-white';
   const positiveColor = theme === 'dark' ? 'text-[#26A69A]' : 'text-green-500';
   const negativeColor = theme === 'dark' ? 'text-[#EF5350]' : 'text-red-500';
-  const inputBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-[#2A2E39]' : 'border-gray-200';
 
   const handleSubmit = async (e: React.FormEvent) => {

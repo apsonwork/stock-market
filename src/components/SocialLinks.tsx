@@ -8,7 +8,6 @@ const SocialLinks: React.FC = () => {
 
   const bgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-[#2A2E39]' : 'border-gray-200';
-  const textColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-gray-900';
   const secondaryTextColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-500';
   const linkBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-gray-100';
   const linkTextColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-black-100';

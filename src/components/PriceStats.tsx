@@ -1,35 +1,37 @@
 "use client"
 
 import React from 'react';
+import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
 
 const PriceStats: React.FC = () => {
   const { theme } = useTheme();
 
-  const bgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-white';
+  const bgColor = theme === 'dark' ? 'bg-[#131722]' : 'bg-white';
   const textColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-gray-900';
-  const secondaryTextColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-400';
+  const secondaryTextColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-500';
   const borderColor = theme === 'dark' ? 'border-[#2A2E39]' : 'border-gray-200';
-  const positiveColor = theme === 'dark' ? 'text-[#26A69A]' : 'text-green-500';
+  const positiveColor = theme === 'dark' ? 'text-green-400' : 'text-green-600';
 
   return (
-    <div className={`${bgColor} px-4 py-4`}>
-      <div className="flex flex-col mb-4">
-        <div className="flex items-center">
-          <img
+    <div className={`${bgColor} p-4 rounded-lg border ${borderColor}`}>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="relative w-7 h-7">
+          <Image
             src="/images/logo.jpeg"
-            alt="Logo"
-            className="w-6 h-6 mr-2"
+            alt="Nabil Bank"
+            fill
+            className="object-contain"
           />
-          <div className='flex items-center'>
-            <h1 className={`text-lg font-semibold pr-1 ${textColor}`}>Nabil Bank</h1>
-            <p className={`text-xs font-normal ${secondaryTextColor}`}>NBL</p>
-          </div>
         </div>
-        <div className='flex items-center mt-3'>
-          <p className={`text-32 font-bold ${textColor}`}>NPR 493.20</p> &nbsp;&nbsp;
-          <p className={`text-xs ${positiveColor} tracking-wide`}>+0.39%</p>
+        <div>
+          <h2 className={`${textColor} font-semibold`}>Nabil Bank</h2>
+          <p className={`${secondaryTextColor} text-sm`}>NBL</p>
         </div>
+      </div>
+      <div className='flex items-center mt-3'>
+        <p className={`text-32 font-bold ${textColor}`}>NPR 493.20</p> &nbsp;&nbsp;
+        <p className={`text-xs ${positiveColor} tracking-wide`}>+0.39%</p>
       </div>
       <div className='mb-5'>
         <div className="grid grid-cols-2 gap-2 mb-2">

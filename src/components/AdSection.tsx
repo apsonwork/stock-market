@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
 
 const AdSection: React.FC = () => {
@@ -13,11 +14,12 @@ const AdSection: React.FC = () => {
   return (
     <div className={`${bgColor} p-4 mt-4`}>
       <div className={`text-center ${textColor} text-sm mb-2`}>Advertisement</div>
-      <div className={`${adBgColor} rounded-lg overflow-hidden`}>
-        <img 
-          src="/images/ad.jpeg" 
-          alt="Advertisement" 
-          className="w-full h-[250px] object-cover"
+      <div className={`${adBgColor} rounded-lg overflow-hidden relative h-[250px]`}>
+        <Image
+          src="/images/ad.jpeg"
+          alt="Advertisement"
+          fill
+          className="object-cover"
         />
       </div>
     </div>

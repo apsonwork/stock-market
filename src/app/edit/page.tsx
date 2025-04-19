@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import ChartRightSection from '@/components/ChartRightSection';
 import AITechnicalAnalysis from '@/components/AITechnicalAnalysis';
@@ -9,7 +9,9 @@ import { useTheme } from '@/context/ThemeContext';
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     TradingView: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Datafeeds: any;
   }
 }
@@ -173,7 +175,6 @@ const marketData = {
 
 export default function EditPage() {
   const container = useRef<HTMLDivElement>(null);
-  const [widget, setWidget] = useState<any>(null);
   const router = useRouter();
   const { theme } = useTheme();
 
@@ -255,13 +256,9 @@ export default function EditPage() {
         });
 
         tvWidget.onChartReady(() => {
-          const chart = tvWidget.activeChart();
-          chart.crossHairMoved().subscribe(null, (param: any) => {
-            console.log("Price:", param.price, "Time:", new Date(param.time * 1000));
-          });
+          tvWidget.activeChart();
         });
 
-        setWidget(tvWidget);
       };
     };
 

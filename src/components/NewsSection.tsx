@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
 
 const NewsSection: React.FC = () => {
@@ -50,7 +51,14 @@ const NewsSection: React.FC = () => {
             <div className=''>
             <div className={`px-1 transition-colors border-b pb-3 ${borderColor}`}>
               <div className='flex items-center gap-2 mb-2'>
-              <img className='w-6 h-6 rounded-full' src="https://s3.coinmarketcap.com/static-gravity/image/fba756c012164c6c9d23f93906d30875.jpg" alt="avatar frame"/>
+              <div className="relative w-6 h-6">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/image/fba756c012164c6c9d23f93906d30875.jpg"
+                  alt="avatar frame"
+                  fill
+                  className="rounded-full"
+                />
+              </div>
               <p className={`text-sm ${secondaryTextColor}`}>Ram Bahadhur Panday</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
@@ -61,17 +69,38 @@ Sentiment is loud. <br/>
 But remember: euphoria ≠ breakout. <br/>
 
 Watch the $86K level </h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="images/image.jpeg" loading="lazy" decoding="async" alt="image"></img>
+              <div className="relative w-full h-40 mt-2">
+                <Image
+                  src="/images/image.jpeg"
+                  alt="news image"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
             </div>
             </div>
             <div className={`px-1 transition-colors border-b pb-3 ${borderColor}`}>
               <div className='flex items-center gap-2 mb-2'>
-              <img className='w-6 h-6 rounded-full' src="https://s3.coinmarketcap.com/static-gravity/image/fba756c012164c6c9d23f93906d30875.jpg" alt="avatar frame"/>
+              <div className="relative w-6 h-6">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/image/fba756c012164c6c9d23f93906d30875.jpg"
+                  alt="avatar frame"
+                  fill
+                  className="rounded-full"
+                />
+              </div>
               <p className={`text-sm ${secondaryTextColor}`}>Hari Singh</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
               <h3 className={`text-sm font-medium ${textColor}`}>BTC train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="images/image.jpeg" loading="lazy" decoding="async" alt="image"></img>
+              <div className="relative w-full h-40 mt-2">
+                <Image
+                  src="/images/image.jpeg"
+                  alt="news image"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
             </div>
           </div>
         ) : (
@@ -79,17 +108,38 @@ Watch the $86K level </h3>
           <div className="space-y-4">
             <div className={`px-1 transition-colors border-b pb-3 ${borderColor}`}>
               <div className='flex items-center gap-2 mb-2'>
-              <img className='w-6 h-6 rounded-full' src="https://s3.coinmarketcap.com/static-gravity/image/fba756c012164c6c9d23f93906d30875.jpg" alt="avatar frame"/>
+              <div className="relative w-6 h-6">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/image/fba756c012164c6c9d23f93906d30875.jpg"
+                  alt="avatar frame"
+                  fill
+                  className="rounded-full"
+                />
+              </div>
               <p className={`text-sm ${secondaryTextColor}`}>Hari Singh</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
               <h3 className={`text-sm font-medium ${textColor}`}>BTC train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/dc0f3aa391df44559830669c773fe45d.jpg" loading="lazy" decoding="async"  alt="image"></img>
+              <div className="relative w-full h-40 mt-2">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/dc0f3aa391df44559830669c773fe45d.jpg"
+                  alt="news image"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
             </div>
             <div className=''>
             <div className={`px-1 transition-colors border-b pb-3 ${borderColor}`}>
               <div className='flex items-center gap-2 mb-2'>
-              <img className='w-6 h-6 rounded-full' src="https://s3.coinmarketcap.com/static-gravity/image/2b0fd7d35bbb4c3ea831dea150b907e6.png" alt="avatar frame"/>
+              <div className="relative w-6 h-6">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/image/2b0fd7d35bbb4c3ea831dea150b907e6.png"
+                  alt="avatar frame"
+                  fill
+                  className="rounded-full"
+                />
+              </div>
               <p className={`text-sm ${secondaryTextColor}`}>Ram Bahadhur Panday</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
@@ -100,14 +150,28 @@ Sentiment is loud. <br/>
 But remember: euphoria ≠ breakout. <br/>
 
 Watch the $86K level </h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png" loading="lazy" decoding="async" alt="image"></img>
+              <div className="relative w-full h-40 mt-2">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png"
+                  alt="news image"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
             </div>
             </div>
 
             <div className=''>
             <div className={`px-1 transition-colors border-b pb-3 ${borderColor}`}>
               <div className='flex items-center gap-2 mb-2'>
-              <img className='w-6 h-6 rounded-full' src="https://s3.coinmarketcap.com/static-gravity/image/2b0fd7d35bbb4c3ea831dea150b907e6.png" alt="avatar frame"/>
+              <div className="relative w-6 h-6">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/image/2b0fd7d35bbb4c3ea831dea150b907e6.png"
+                  alt="avatar frame"
+                  fill
+                  className="rounded-full"
+                />
+              </div>
               <p className={`text-sm ${secondaryTextColor}`}>Ram Bahadhur Panday</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
@@ -118,7 +182,14 @@ Sentiment is loud. <br/>
 But remember: euphoria ≠ breakout. <br/>
 
 Watch the $86K level </h3>
-              <img className='w-full h-40 rounded-lg object-cover mt-2' src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png" loading="lazy" decoding="async" alt="image"></img>
+              <div className="relative w-full h-40 mt-2">
+                <Image
+                  src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png"
+                  alt="news image"
+                  fill
+                  className="rounded-lg object-cover"
+                />
+              </div>
             </div>
             </div>
           </div>

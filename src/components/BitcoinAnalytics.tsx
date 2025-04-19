@@ -7,7 +7,6 @@ import { useTheme } from '@/context/ThemeContext';
 const BitcoinAnalytics: React.FC = () => {
   const { theme } = useTheme();
   
-  const bgColor = theme === 'dark' ? 'bg-[#1E222D]' : 'bg-white';
   const cardBgColor = theme === 'dark' ? 'bg-[#2A2E39]' : 'bg-[#F8FAFD]';
   const textColor = theme === 'dark' ? 'text-[#D1D4DC]' : 'text-black-100';
   const secondaryTextColor = theme === 'dark' ? 'text-[#9598A1]' : 'text-gray-500';
