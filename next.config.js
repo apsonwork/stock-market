@@ -8,6 +8,8 @@ const nextConfig = {
       'localhost'
     ],
   },
+  output: 'export',
+  distDir: 'out',
 }
 
 module.exports = nextConfig 
