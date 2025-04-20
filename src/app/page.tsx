@@ -39,7 +39,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className={`shrink-0 w-[390px] min-w-[329px] overflow-y-auto border-l ${borderColor} hidden xl:block scrollbar-light`}>
+          <div className={`shrink-0 w-[350px] min-w-[329px] overflow-y-auto border-l ${borderColor} hidden xl:block scrollbar-light`}>
             <NewsSection />
             <AdSection />
           </div>

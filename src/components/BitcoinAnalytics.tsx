@@ -53,10 +53,10 @@ const BitcoinAnalytics: React.FC = () => {
 
         {/* Bitcoin Average Transaction Fees */}
         <div className={`${cardBgColor} p-4 rounded-lg`}>
-          <h3 className={`text-sm ${textColor} mb-3`}>Bitcoin Average Transaction Fees (30d)</h3>
+          <h3 className={`text-sm ${textColor} mb-3`}>NBL Average Transaction Fees (30d)</h3>
           <div className="flex flex-col justify-between">
-            <span className={`text-base font-bold ${textColor} mb-1`}>$0.9754</span>
-            <span className={`text-xs font-medium ${secondaryTextColor}`}>0.000012 BTC</span>
+            <span className={`text-base font-bold ${textColor} mb-1`}>NPR 0.9754</span>
+            <span className={`text-xs font-medium ${secondaryTextColor}`}>0.000012</span>
           </div>
         </div>
       </div>

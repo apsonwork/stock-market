@@ -62,13 +62,13 @@ const NewsSection: React.FC = () => {
               <p className={`text-sm ${secondaryTextColor}`}>Ram Bahadhur Panday</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
-              <h3 className={`text-sm font-medium ${textColor}`}>🧠 3.7M votes — and 81% are bullish on BTC. <br/>
+              <h3 className={`text-sm font-medium ${textColor}`}>🧠 3.7M votes — and 81% are bullish on NBL. <br/>
 
 Sentiment is loud. <br/>
 
 But remember: euphoria ≠ breakout. <br/>
 
-Watch the $86K level </h3>
+Watch the NPR 86K level </h3>
               <div className="relative w-full h-40 mt-2">
                 <Image
                   src="/images/image.jpeg"
@@ -92,7 +92,7 @@ Watch the $86K level </h3>
               <p className={`text-sm ${secondaryTextColor}`}>Hari Singh</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
-              <h3 className={`text-sm font-medium ${textColor}`}>BTC train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
+              <h3 className={`text-sm font-medium ${textColor}`}>NBL train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
               <div className="relative w-full h-40 mt-2">
                 <Image
                   src="/images/image.jpeg"
@@ -119,10 +119,10 @@ Watch the $86K level </h3>
               <p className={`text-sm ${secondaryTextColor}`}>Hari Singh</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
-              <h3 className={`text-sm font-medium ${textColor}`}>BTC train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
+              <h3 className={`text-sm font-medium ${textColor}`}>NBL train is moving, those who want to go to the moon, get on Ride on the DOGEMARS train👇👇 👇y gfh hgg</h3>
               <div className="relative w-full h-40 mt-2">
                 <Image
-                  src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/dc0f3aa391df44559830669c773fe45d.jpg"
+                  src="/images/image.jpeg"
                   alt="news image"
                   fill
                   className="rounded-lg object-cover"
@@ -143,16 +143,16 @@ Watch the $86K level </h3>
               <p className={`text-sm ${secondaryTextColor}`}>Ram Bahadhur Panday</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
-              <h3 className={`text-sm font-medium ${textColor}`}>🧠 3.7M votes — and 81% are bullish on BTC. <br/>
+              <h3 className={`text-sm font-medium ${textColor}`}>🧠 3.7M votes — and 81% are bullish on NBL. <br/>
 
 Sentiment is loud. <br/>
 
 But remember: euphoria ≠ breakout. <br/>
 
-Watch the $86K level </h3>
+Watch the NPR 86K level </h3>
               <div className="relative w-full h-40 mt-2">
                 <Image
-                  src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png"
+                  src="/images/image.jpeg"
                   alt="news image"
                   fill
                   className="rounded-lg object-cover"
@@ -175,16 +175,16 @@ Watch the $86K level </h3>
               <p className={`text-sm ${secondaryTextColor}`}>Ram Bahadhur Panday</p>
               <p className={`text-11 font-normal ${secondaryTextColor}`}>2 hours ago</p>
               </div>
-              <h3 className={`text-sm font-medium ${textColor}`}>🧠 3.7M votes — and 81% are bullish on BTC. <br/>
+              <h3 className={`text-sm font-medium ${textColor}`}>🧠 3.7M votes — and 81% are bullish on NBL. <br/>
 
 Sentiment is loud. <br/>
 
 But remember: euphoria ≠ breakout. <br/>
 
-Watch the $86K level </h3>
+Watch the NPR 86K level </h3>
               <div className="relative w-full h-40 mt-2">
                 <Image
-                  src="https://s3.coinmarketcap.com/static-gravity/thumbnail/large/0e3aa5e1320442c8a1d982bde3247561.png"
+                  src="/images/image.jpeg"
                   alt="news image"
                   fill
                   className="rounded-lg object-cover"
