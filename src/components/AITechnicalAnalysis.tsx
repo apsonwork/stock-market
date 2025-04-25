@@ -137,6 +137,17 @@ const AITechnicalAnalysis: React.FC<AITechnicalAnalysisProps> = ({ widget }) => 
             <p className={`text-11 ${secondaryTextColor}`}>Get detailed market analysis.</p>
           </div>
         </div>
+        <div className="flex justify-center space-x-1 ml-96">
+    <button className="px-3 py-0.5 bg-green-500 text-white rounded text-[10px] hover:bg-green-700">
+        SUPPORT
+    </button>
+    <button className="px-3 py-0.5 bg-red-500 text-white rounded text-[10px] hover:bg-red-700">
+        RESISTANCE
+    </button>
+    <button className="px-3 py-0.5 bg-gray-500 text-white rounded text-[10px] hover:bg-gray-700">
+        TRENDLINE
+    </button>
+   </div>
         <button
           onClick={handleAnalyze}
           disabled={isLoading || !widget}
@@ -148,8 +159,9 @@ const AITechnicalAnalysis: React.FC<AITechnicalAnalysisProps> = ({ widget }) => 
               : 'bg-blue-500 hover:bg-blue-600'
           } text-white transition-colors duration-200`}
         >
-          {isLoading ? 'Analyzing...' : 'Analyze'}
+          {isLoading ? 'Analyzing...' : 'An alyze'}
         </button>
+        
       </div>
       <div className="p-4 overflow-y-auto h-[121px] scrollbar-light">
         {isLoading ? (
@@ -201,7 +213,7 @@ const AITechnicalAnalysis: React.FC<AITechnicalAnalysisProps> = ({ widget }) => 
           </div>
         ) : (
           <div className="flex justify-center items-center h-full">
-
+             
             <p className={`text-sm font-normal ${secondaryTextColor}`}>Click <b>Analyze</b> to generate technical analysis.</p>
           </div>
         )}
